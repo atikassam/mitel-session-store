@@ -8,6 +8,9 @@ import {ItemListComponent} from "./components/item-list/component";
 import {ItemDetailsComponent} from "./components/item-details/component";
 import {DataProvider} from "./services/data.provider";
 import {ChildTestCDSComponent} from "./components/item-details/CDS/component";
+import {PieChartComponent} from "./components/chart/component";
+import {ChartsModule} from "ng2-charts";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,11 +18,14 @@ import {ChildTestCDSComponent} from "./components/item-details/CDS/component";
     ItemComponent,
     ItemListComponent,
     ItemDetailsComponent,
-    ChildTestCDSComponent
+    ChildTestCDSComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [ DataProvider ],
   bootstrap: [AppComponent]

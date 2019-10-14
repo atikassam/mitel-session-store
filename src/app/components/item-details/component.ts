@@ -6,7 +6,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
-  Output
+  Output, ViewChildren
 } from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
 
@@ -33,7 +33,6 @@ interface ItemDetailsSchema {
 export class ItemDetailsComponent implements OnInit, OnDestroy {
   @Input() id:string;
   @Output() onClose: EventEmitter<any> = new EventEmitter();
-
   data_subscription;
 
   details: ItemDetailsSchema;
