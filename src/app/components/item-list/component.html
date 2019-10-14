@@ -1,0 +1,5 @@
+<div>
+  <div class="app-title" *ngFor="let item of items">
+    <app-item (onClick)="onClickItem.emit($event)" [item]="item"></app-item>
+  </div>
+</div>

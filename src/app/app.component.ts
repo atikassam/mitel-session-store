@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'store';
+  selected_item: any;
+
+  showDetails($event) {
+    this.selected_item = $event;
+  }
+
 }
