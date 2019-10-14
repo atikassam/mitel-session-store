@@ -1,6 +1,8 @@
-<div *ngIf="!selected_item">
-  <app-item-list (onClickItem)="showDetails($event)"></app-item-list>
-</div>
-<div *ngIf="selected_item">
+<div class="app-container">
+  <div>
+    <app-item-list></app-item-list>
+  </div>
+
   <app-item-details [id]="selected_item" (onClose)="showDetails(null)"></app-item-details>
 </div>
+

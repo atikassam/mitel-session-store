@@ -1,4 +1,13 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {
+  ChangeDetectionStrategy, ChangeDetectorRef,
+  Component,
+  ComponentRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output
+} from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
 
 interface ItemDetailsSchema {
@@ -18,6 +27,7 @@ interface ItemDetailsSchema {
   selector: 'app-item-details',
   templateUrl: './component.html',
   styleUrls: ['./component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
   // encapsulation: ViewEncapsulation.None
 })
 export class ItemDetailsComponent implements OnInit, OnDestroy {
@@ -27,11 +37,10 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
   data_subscription;
 
   details: ItemDetailsSchema;
-  constructor(private dataProvider: DataProvider) {}
+  constructor(private dataProvider: DataProvider, private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.data_subscription = this.dataProvider.getData(this.id)
-      .subscribe(this.setData.bind(this))
+    this.data_subscription = this.dataProvider.onData(this.setData.bind(this))
   }
 
   ngOnDestroy(): void {
@@ -39,6 +48,8 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
   }
 
   setData(data) {
-    this.details = data
+    this.details = data;
+
+    this.changeDetectorRef.markForCheck()
   }
 }

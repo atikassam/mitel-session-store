@@ -1,5 +1,4 @@
 <div class="app-title" *ngIf="details">
-  <button (click)="onClose.emit()"> Close </button>
   <h1> Image: {{ details.image }} </h1>
   <h1> Name: {{ details.name }} </h1>
   <h4> Description: {{ details.description }} </h4>
@@ -8,4 +7,5 @@
   <h4> Category: {{ details.category }} </h4>
   <h4> Updated by: {{ details.last_updated_by }} </h4>
   <h4> Updated at: {{ details.last_update }} </h4>
+  <app-cds></app-cds>
 </div>

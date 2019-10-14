@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
+import {Observable, Subject, Subscription } from "rxjs";
 
 @Injectable()
 export class DataProvider {
+  private show_details: Subject<any> = new Subject()
 
   details = [
     {
@@ -40,12 +41,13 @@ export class DataProvider {
     }
   ]
 
+  showDetails(id): void {
+    let data = this.details.find((data) => data._id === id);
 
-  getData(id): Observable<any> {
-    return new Observable(( subscriber ) => {
-      let data = this.details.find((data) => data._id === id)
+    this.show_details.next(data);
+  }
 
-      subscriber.next(data);
-    })
+  onData(cb): Subscription {
+    return this.show_details.subscribe(cb)
   }
 }

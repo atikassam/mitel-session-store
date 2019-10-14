@@ -17,7 +17,7 @@ interface ItemSchema {
   providers: []
 })
 export class ItemListComponent {
-  @Output() onClickItem: EventEmitter<any> = new EventEmitter();
+  // @Output() onClickItem: EventEmitter<any> = new EventEmitter();
 
   items: ItemSchema[] = [
     {
