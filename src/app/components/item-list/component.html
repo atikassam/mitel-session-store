@@ -1,7 +1,4 @@
-<a routerLink="/">Home</a>
-
-<div>
-  <div class="app-title" *ngFor="let item of items">
-    <app-item [item]="item"></app-item>
-  </div>
+<h2 class="list-title">Item list</h2>
+<div class="list-container">
+  <app-item  *ngFor="let item of items" [item]="item"></app-item>
 </div>

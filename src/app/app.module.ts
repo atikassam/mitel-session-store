@@ -15,6 +15,10 @@ import {MatCardModule} from '@angular/material/card';
 import {LifecycleComponent} from "./components/lifecycle/component";
 import {ContainerComponent} from "./components/container/component";
 import {HomeComponent} from "./pages/home/component";
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {AddItemComponent} from "./components/add-item/component";
+
 
 @NgModule({
   declarations: [
@@ -26,14 +30,17 @@ import {HomeComponent} from "./pages/home/component";
     PieChartComponent,
     LifecycleComponent,
     ContainerComponent,
-    HomeComponent
+    HomeComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [ DataProvider ],
   bootstrap: [AppComponent]

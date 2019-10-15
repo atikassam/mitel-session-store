@@ -1,8 +1,10 @@
-//.app-title {
-//  background-color: antiquewhite !important;
-//}
-//
-//
-//div > .app-title {
-//    background-color: antiquewhite !important;
-//}
+.list-title {
+  margin: 10px;
+}
+.list-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+}

@@ -1,44 +1,11 @@
-<div>
-  <h1> Store </h1>
-  <div>
-    <ng-content></ng-content>
-  </div>
-</div>
-
-<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-
-<!--<app-container>-->
-<!--  <div>-->
-<!--    This is content-->
-<!--  </div>-->
-<!--</app-container>-->
-
-
-<!--<app-container>-->
-<!--  <div>-->
-<!--    This is content 2-->
-<!--  </div>-->
-<!--</app-container>-->
-
-
-<!--<app-container>-->
-<!--  <div>-->
-<!--    <h1> Store </h1>-->
-<!--    <div>-->
-<!--      <div>-->
-<!--        This is content -->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</app-container>-->
-
-<!--<app-container>-->
-<!--  <div>-->
-<!--    <h1> Store </h1>-->
-<!--    <div>-->
-<!--      <div>-->
-<!--        This is content 2-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</app-container>-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>My Store</span>
+    <div class="space"></div>
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/list">List</button>
+    <button mat-button routerLink="/add-item">Add Item</button>
+    <button mat-button routerLink="/auth/login">Login</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<ng-content></ng-content>

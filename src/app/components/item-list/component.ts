@@ -49,7 +49,7 @@ export class ItemListComponent {
   @ViewChildren(ItemComponent) items_c: QueryList<ItemComponent>;
 
   ngAfterViewInit(): void {
-    // console.log(this.items.callFucFromOtherCOmponent())
+    // console.log(this.items.callFucFromOtherComponent())
     console.log(this.items_c.toArray())
     this.items_c.changes.subscribe(v => console.log(v))
   }
