@@ -1,27 +1,30 @@
-import {AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {ItemListComponent} from "../../components/item-list/component";
+import {NgModule} from "@angular/core";
+import {RouterModule, Routes} from "@angular/router";
+import {DetailsComponent} from "./component";
+import {HomeComponent} from "../home/component";
 
-@Component({
-  selector: 'app-details',
-  templateUrl: './component.html',
-  styleUrls: ['./component.scss']
+const routes: Routes = [
+  {
+    path: '',
+    component: DetailsComponent
+  },
+  {
+    path: 'prod1',
+    component: DetailsComponent
+  },
+  {
+    path: 'prod12',
+    component: DetailsComponent
+  },
+  {
+    path: '**',
+    component: DetailsComponent
+  }
+];
+
+@NgModule({
+  declarations: [ DetailsComponent ],
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class DetailsComponent implements AfterViewInit {
-  count = 0;
-  show = true;
-  title = 'store';
-  selected_item: any;
-
-  @ViewChild(ItemListComponent, { static: true }) item_list: ItemListComponent;
-  @ViewChildren(ItemListComponent) items: QueryList<ItemListComponent>;
-
-  ngAfterViewInit(): void {
-    // console.log(this.items.callFucFromOtherCOmponent())
-    console.log(this.items.toArray()[1])
-    this.items.changes.subscribe(v => console.log(v))
-  }
-
-  showDetails($event) {
-    this.selected_item = $event;
-  }
-}
+export class HomeModule {}

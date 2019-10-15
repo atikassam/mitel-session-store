@@ -49,6 +49,7 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
   setData(data) {
     this.details = data;
 
+    // console.log(this.details)
     this.changeDetectorRef.markForCheck()
   }
 }

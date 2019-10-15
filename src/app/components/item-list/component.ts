@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Output, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Output, QueryList, ViewChild, ViewChildren, ViewEncapsulation} from '@angular/core';
+import {ItemComponent} from "../item/component";
 
 interface ItemSchema {
   [key: string]: any
@@ -42,4 +43,18 @@ export class ItemListComponent {
       count: 100
     }
   ]
+
+
+  @ViewChild(ItemComponent, { static: true }) item_list: ItemComponent;
+  @ViewChildren(ItemComponent) items_c: QueryList<ItemComponent>;
+
+  ngAfterViewInit(): void {
+    // console.log(this.items.callFucFromOtherCOmponent())
+    console.log(this.items_c.toArray())
+    this.items_c.changes.subscribe(v => console.log(v))
+  }
+
+  callFucFromOtherCOmponent() {
+    alert('Called')
+  }
 }

@@ -11,6 +11,10 @@ import {ChildTestCDSComponent} from "./components/item-details/CDS/component";
 import {PieChartComponent} from "./components/chart/component";
 import {ChartsModule} from "ng2-charts";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {LifecycleComponent} from "./components/lifecycle/component";
+import {ContainerComponent} from "./components/container/component";
+import {HomeComponent} from "./pages/home/component";
 
 @NgModule({
   declarations: [
@@ -20,12 +24,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ItemDetailsComponent,
     ChildTestCDSComponent,
     PieChartComponent,
+    LifecycleComponent,
+    ContainerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [ DataProvider ],
   bootstrap: [AppComponent]

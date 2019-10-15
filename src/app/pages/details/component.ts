@@ -2,11 +2,11 @@ import {AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren} fr
 import {ItemListComponent} from "../../components/item-list/component";
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-details',
   templateUrl: './component.html',
   styleUrls: ['./component.scss']
 })
-export class HomeComponent implements AfterViewInit {
+export class DetailsComponent implements AfterViewInit {
   count = 0;
   show = true;
   title = 'store';

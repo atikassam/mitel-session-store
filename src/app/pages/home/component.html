@@ -1,44 +1,22 @@
-<div>
-  <h1> Store </h1>
-  <div>
-    <ng-content></ng-content>
+<app-container>
+  <div kk class="app-container">
+    <div>
+      <!--    {{ items?.length }}-->
+      <app-item-list></app-item-list>
+    </div>
+
+    <app-pie-chart></app-pie-chart>
+    <app-item-details [id]="selected_item" (onClose)="showDetails(null)"></app-item-details>
+
+    <div>
+      <button (click)="count = count + 1">Change value</button>
+      <button (click)="show = !show">Hide</button>
+      <a routerLink="/details">Details</a>
+      <a routerLink="/list">Details</a>
+      <a routerLink="/">Home</a>
+      <div *ngIf="show">
+        <app-lifecycle [item]="count"></app-lifecycle>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-
-<!--<app-container>-->
-<!--  <div>-->
-<!--    This is content-->
-<!--  </div>-->
-<!--</app-container>-->
-
-
-<!--<app-container>-->
-<!--  <div>-->
-<!--    This is content 2-->
-<!--  </div>-->
-<!--</app-container>-->
-
-
-<!--<app-container>-->
-<!--  <div>-->
-<!--    <h1> Store </h1>-->
-<!--    <div>-->
-<!--      <div>-->
-<!--        This is content -->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</app-container>-->
-
-<!--<app-container>-->
-<!--  <div>-->
-<!--    <h1> Store </h1>-->
-<!--    <div>-->
-<!--      <div>-->
-<!--        This is content 2-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</app-container>-->
+</app-container>
