@@ -1,1 +1,9 @@
-Add Item
+<form [formGroup]="add_item_form" (ngSubmit)="onSubmit()">
+  <label>
+    First Name:
+    <input type="text" name="name" formControlName="name" required>
+  </label>
+  <div *ngIf="add_item_form.get('name').errors?.required">
+    Name is required
+  </div>
+</form>

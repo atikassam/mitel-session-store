@@ -4,4 +4,6 @@ import {AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren} fr
   templateUrl: './component.html',
   styleUrls: ['./component.scss']
 })
-export class LoginComponent {}
+export class LoginComponent {
+  credential: any = {}
+}

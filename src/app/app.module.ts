@@ -18,6 +18,7 @@ import {HomeComponent} from "./pages/home/component";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {AddItemComponent} from "./components/add-item/component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {AddItemComponent} from "./components/add-item/component";
     BrowserAnimationsModule,
     MatCardModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [ DataProvider ],
   bootstrap: [AppComponent]
