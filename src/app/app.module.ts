@@ -10,6 +10,8 @@ import {DataProvider} from "./services/data.provider";
 import {ChildTestCDSComponent} from "./components/item-details/CDS/component";
 import { ChartsModule } from 'ng2-charts';
 import {ChartsComponent} from "./components/chart-component/component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {ChartsComponent} from "./components/chart-component/component";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChartsModule
+    ChartsModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [ DataProvider ],
   bootstrap: [AppComponent]
