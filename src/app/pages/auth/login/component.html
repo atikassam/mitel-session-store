@@ -27,7 +27,7 @@
           </mat-error>
         </mat-form-field>
 
-        <button mat-flat-button color="primary" [disabled]="!formElement.form.valid">Login</button>
+        <button (click)="onSubmit()" mat-flat-button color="primary" [disabled]="!formElement.form.valid">Login</button>
       </form>
     </mat-card-content>
   </mat-card>

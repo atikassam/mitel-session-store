@@ -19,6 +19,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {AddItemComponent} from "./components/add-item/component";
 import {ReactiveFormsModule} from "@angular/forms";
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import {AuthEffects} from "./reducers/auth/auth.effects";
 
 
 @NgModule({
@@ -42,7 +46,15 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [ DataProvider ],
   bootstrap: [AppComponent]

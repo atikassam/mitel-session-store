@@ -5,6 +5,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule, MatCardModule, MatDividerModule} from "@angular/material";
+import {StoreModule} from "@ngrx/store";
+import {metaReducers, reducers} from "../../reducers";
 const routes: Routes = [
   {
     path: 'login',
