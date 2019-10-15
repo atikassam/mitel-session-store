@@ -1,1 +1,10 @@
-Hello lazy loading
+<div class="app-title" *ngIf="details">
+  <h1> Image: {{ details.image }} </h1>
+  <h1> Name: {{ details.name }} </h1>
+  <h4> Description: {{ details.description }} </h4>
+  <h4> Price/item: {{ details.price }} </h4>
+  <h4> Total items available: {{ details.count }} </h4>
+  <h4> Category: {{ details.category }} </h4>
+  <h4> Updated by: {{ details.last_updated_by }} </h4>
+  <h4> Updated at: {{ details.last_update }} </h4>
+</div>

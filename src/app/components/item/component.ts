@@ -20,7 +20,7 @@ export class ItemComponent implements OnChanges {
   }
 
   onClickItem() {
-    this.router.navigate(['details', this.item._id]);
+    this.router.navigate([`details/${ this.item._id }`]);
     this.dataProvider.showDetails(this.item._id)
   }
 }

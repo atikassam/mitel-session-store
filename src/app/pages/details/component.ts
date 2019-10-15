@@ -1,36 +1,49 @@
-import {AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {
+  AfterViewInit, ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  QueryList,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {ItemListComponent} from "../../components/item-list/component";
 import {ActivatedRoute} from "@angular/router";
+import {DataProvider} from "../../services/data.provider";
 
 @Component({
   selector: 'app-details',
   templateUrl: './component.html',
   styleUrls: ['./component.scss']
 })
-export class DetailsComponent implements AfterViewInit, OnInit {
+export class DetailsComponent implements OnInit {
   count = 0;
-  show = true;
   title = 'store';
-  selected_item: any;
+  data_subscription;
+  details;
 
-  @ViewChild(ItemListComponent, { static: true }) item_list: ItemListComponent;
-  @ViewChildren(ItemListComponent) items: QueryList<ItemListComponent>;
-
-  constructor(private router: ActivatedRoute) {}
+  constructor(private router: ActivatedRoute, private dataProvider: DataProvider) {}
 
   ngOnInit(): void {
+    console.log(this.dataProvider.details);
     this.router.params.subscribe((value => {
-      console.log(value)
+      console.log(value.id)
+      let details = this.dataProvider.getDetails(parseInt(value.id));
+      console.log(details)
+      this.setData(details);
     }))
   }
 
-  ngAfterViewInit(): void {
-    // console.log(this.items.callFucFromOtherCOmponent())
-    console.log(this.items.toArray()[1])
-    this.items.changes.subscribe(v => console.log(v))
+  ngOnDestroy(): void {
+    // this.data_subscription.unsubscribe()
   }
 
-  showDetails($event) {
-    this.selected_item = $event;
+  setData(data) {
+    this.details = data;
+
+    // console.log(this.details)
+    // this.changeDetectorRef.markForCheck()
   }
 }

@@ -41,9 +41,13 @@ export class DataProvider {
     }
   ]
 
-  showDetails(id): void {
+  getDetails(id) {
     let data = this.details.find((data) => data._id === id);
+    return data
+  }
 
+  showDetails(id) {
+    let data = this.getDetails(id)
     this.show_details.next(data);
   }
 

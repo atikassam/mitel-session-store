@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'list', component: ItemListComponent },
   { path: 'add-item', component: AddItemComponent },
 
+  // details/
   { path: 'details', loadChildren: () => import('./pages/details/home.module').then(e => e.HomeModule) },
   { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(e => e.AuthModule) },
 ];
