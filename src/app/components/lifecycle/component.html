@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-content>
+    <div (click)="onClickItem()" class="app-title" *ngIf="item">
+      <h1> Name: {{ item.name }} </h1>
+      <h4> Description: {{ item.description }} </h4>
+      <h4> Price/item: {{ item.price }} </h4>
+      <h4> Total items available: {{ item.count }} </h4>
+    </div>
+  </mat-card-content>
+</mat-card>

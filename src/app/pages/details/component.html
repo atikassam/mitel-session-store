@@ -1,0 +1,19 @@
+<app-container>
+  <div kk class="app-container">
+    <div>
+      <!--    {{ items?.length }}-->
+      <app-item-list></app-item-list>
+    </div>
+
+    <app-pie-chart></app-pie-chart>
+    <app-item-details [id]="selected_item" (onClose)="showDetails(null)"></app-item-details>
+
+    <div>
+      <button (click)="count = count + 1">Change value</button>
+      <button (click)="show = !show">Hide</button>
+      <div *ngIf="show">
+        <app-lifecycle [item]="count"></app-lifecycle>
+      </div>
+    </div>
+  </div>
+</app-container>
