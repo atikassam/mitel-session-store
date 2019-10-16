@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Observable, Subject, Subscription } from "rxjs";
+import {ApiService} from "./api.service";
 
 @Injectable()
 export class DataProvider {
@@ -40,6 +41,7 @@ export class DataProvider {
       last_updated_by: "User name"
     }
   ]
+  constructor(public  apiService: ApiService) {}
 
   getDetails(id) {
     let data = this.details.find((data) => data._id === id);
@@ -47,6 +49,7 @@ export class DataProvider {
   }
 
   showDetails(id) {
+    this.apiService.getItems().subscribe(console.log)
     let data = this.getDetails(id)
     this.show_details.next(data);
   }

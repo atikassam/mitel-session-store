@@ -15,6 +15,9 @@ export class AddItemComponent {
 
   item: any = {}
 
+  get name() {
+    return this.add_item_form.get('name')
+  }
   onSubmit() {
     console.log(this.item)
   }

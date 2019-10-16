@@ -23,6 +23,9 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import {AuthEffects} from "./reducers/auth/auth.effects";
+import {AuthGuard} from "./services/auth.guard";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpCallInterceptor} from "./services/http.interceptor";
 
 
 @NgModule({
@@ -47,6 +50,7 @@ import {AuthEffects} from "./reducers/auth/auth.effects";
     MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
+    HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
@@ -56,7 +60,7 @@ import {AuthEffects} from "./reducers/auth/auth.effects";
     }),
     EffectsModule.forRoot([AuthEffects])
   ],
-  providers: [ DataProvider ],
+  providers: [ DataProvider, AuthGuard, { useClass: HttpCallInterceptor, multi: true, provide: HTTP_INTERCEPTORS } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

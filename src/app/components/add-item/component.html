@@ -1,9 +1,9 @@
 <form [formGroup]="add_item_form" (ngSubmit)="onSubmit()">
   <label>
     First Name:
-    <input type="text" name="name" formControlName="name" required>
+    <input type="text" name="name" formControlName="name">
   </label>
-  <div *ngIf="add_item_form.get('name').errors?.required">
+  <div *ngIf="name.errors?.required">
     Name is required
   </div>
 </form>
