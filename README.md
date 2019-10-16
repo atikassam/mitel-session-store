@@ -1,3 +1,7 @@
+# Json server
+1. install json-server `npm install -g json-server`
+2. `json-server --watch db.json`
+
 # Store
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.5.

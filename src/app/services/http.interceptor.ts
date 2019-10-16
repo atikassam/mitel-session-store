@@ -7,8 +7,10 @@ import {HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "
 export class HttpCallInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    let token = localStorage.getItem('token')
+
     const modified_req = req.clone({
-      headers: req.headers.set('Authorization', "authToken")
+      headers: req.headers.set('Authorization', token || "none")
     });
 
     return next.handle(modified_req)

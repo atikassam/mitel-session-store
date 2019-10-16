@@ -8,12 +8,10 @@ import {
 import { environment } from '../../environments/environment';
 import {authReducer} from "./auth/auth.reducer";
 
-export interface State {
-
-}
+export interface State {}
 
 export const reducers: ActionReducerMap<State> = {
-  auth: authReducer
+  auth: authReducer,
 };
 
 
