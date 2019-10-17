@@ -57,17 +57,17 @@ export class HomeComponent implements AfterViewInit, OnInit {
     // on_message_observable.subscribe((s) => sources[2].push(s))
     // on_message_observable.subscribe((s) => sources[3].push(s))
 
+    //
+    // const letters = of('a', 'b', 'c');
+    // const result = letters.pipe(
+    //   mergeMap(x => {
+    //     return interval(1000)
+    //       .pipe(mergeMap(i => of(1, 3, 4, 6)))
+    //   }),
+    // );
 
-    const letters = of('a', 'b', 'c');
-    const result = letters.pipe(
-      mergeMap(x => {
-        return interval(1000)
-          .pipe(mergeMap(i => of(1, 3, 4, 6)))
-      }),
-    );
 
-
-    result.subscribe(x => console.log(x));
+    // result.subscribe(x => console.log(x));
   }
 
   ngAfterViewInit(): void {

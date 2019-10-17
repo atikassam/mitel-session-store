@@ -8,11 +8,11 @@ import {AuthGuard} from "./services/auth.guard";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'list', component: ItemListComponent },
   { path: 'add-item', canActivate: [ AuthGuard ], component: AddItemComponent },
 
   // details/
   { path: 'details', loadChildren: () => import('./pages/details/home.module').then(e => e.HomeModule) },
+  { path: 'list', loadChildren: () => import('./pages/store/store.module').then(e => e.StoreModule) },
   { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(e => e.AuthModule) },
 ];
 

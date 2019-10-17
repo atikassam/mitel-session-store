@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ItemComponent} from "./components/item/component";
 import {ItemListComponent} from "./components/item-list/component";
 import {ItemDetailsComponent} from "./components/item-details/component";
 import {DataProvider} from "./services/data.provider";
@@ -27,12 +26,12 @@ import {AuthGuard} from "./services/auth.guard";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {HttpCallInterceptor} from "./services/http.interceptor";
 import {StoreEffects} from "./reducers/store/store.effects";
+import {SharedModule} from "./shared/shared.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent,
     ItemListComponent,
     ItemDetailsComponent,
     ChildTestCDSComponent,
@@ -45,6 +44,7 @@ import {StoreEffects} from "./reducers/store/store.effects";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     ChartsModule,
     BrowserAnimationsModule,
     MatCardModule,
