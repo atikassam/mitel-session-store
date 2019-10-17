@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {catchError, map, mergeMap} from "rxjs/operators";
 import {EMPTY, Observable, of} from "rxjs";
-import {AuthAction} from "./actions";
 import {ApiService} from "../../services/api.service";
+import {StoreActions} from "./store.actions";
 
 @Injectable()
-export class AuthEffects {
+export class StoreEffects {
   loadMovies$ = createEffect(() => this.actions$.pipe(
-    ofType(AuthAction.Login),
+    ofType(StoreActions.GetItem),
     mergeMap((action) =>
-      this.apiService.login()
+      this.apiService.getItem(action.id)
       //new Observable((s) => s.next({ token: 'data' }))
       .pipe(
-        mergeMap(token => {
-          return of(AuthAction.StartSession({ token }))
+        mergeMap(item => {
+          return of(StoreActions.SetItem({ item }))
         }),
         catchError(() => EMPTY)
       ))

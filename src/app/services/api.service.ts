@@ -16,6 +16,12 @@ export class ApiService {
       // withCredentials: true
     })
   }
+  getItem(id) {
+    return this.http.get(`${ApiService._BASE_}/items/${ id }`, {
+      // withCredentials: true
+    })
+  }
+
   login() {
     return this.http.get(`${ ApiService._BASE_ }/login`, {
       // withCredentials: true

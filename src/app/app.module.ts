@@ -26,6 +26,7 @@ import {AuthEffects} from "./reducers/auth/auth.effects";
 import {AuthGuard} from "./services/auth.guard";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {HttpCallInterceptor} from "./services/http.interceptor";
+import {StoreEffects} from "./reducers/store/store.effects";
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import {HttpCallInterceptor} from "./services/http.interceptor";
         strictActionImmutability: true
       }
     }),
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot([AuthEffects, StoreEffects])
   ],
   providers: [ DataProvider, AuthGuard, { useClass: HttpCallInterceptor, multi: true, provide: HTTP_INTERCEPTORS } ],
   bootstrap: [AppComponent]
